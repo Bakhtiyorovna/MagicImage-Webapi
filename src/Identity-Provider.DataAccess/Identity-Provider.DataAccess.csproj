@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>Identity_Provider.DataAccess</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.151" />
+    <PackageReference Include="Npgsql" Version="8.0.0-preview.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Identity-Provider.Application\Identity-Provider.Application.csproj" />
+  </ItemGroup>
+
+</Project>
