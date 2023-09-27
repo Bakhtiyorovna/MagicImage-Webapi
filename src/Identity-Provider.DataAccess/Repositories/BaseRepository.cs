@@ -7,6 +7,8 @@ public class BaseRepository
     public BaseRepository()
     {
         Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
-        this._connection = new NpgsqlConnection("Host=localhost; Port=5432; Database=Identity-Provider-db; User Id=postgres; Password=1234;");
+       // string _connection = "Host=dbaas-db-8432700-do-user-14588616-0.b.db.ondigitalocean.com; Port=25060; Database=magicimage-db; User Id=doadmin; Password=AVNS_DFAB2OSiTBvYrIQx4fH;";
+
+        this._connection = new NpgsqlConnection("Host=dbaas-db-8432700-do-user-14588616-0.b.db.ondigitalocean.com; Port=25060; Database=magicimage-db; User Id=doadmin; Password=AVNS_DFAB2OSiTBvYrIQx4fH;");
     }
 }

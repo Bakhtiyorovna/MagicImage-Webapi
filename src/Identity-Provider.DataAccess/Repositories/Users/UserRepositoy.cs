@@ -17,10 +17,10 @@ public class UserRepositoy : BaseRepository, IUserRepository
         {
             await _connection.OpenAsync();
 
-            string query = "INSERT INTO public.users( first_name, last_name, identity_provider, password_hash, " +
+            string query = "INSERT INTO public.users( first_name, last_name, identity_provider, password_hash, role, " +
                 "confirm, salt, created_at, updated_at) " +
                     " VALUES ( @FirstName, @LastName, @IdentityProvider, " +
-                        " @PasswordHash, @Confirm, @Salt, @CreatedAt, @UpdatedAt)";
+                        " @PasswordHash,@Role, @Confirm, @Salt, @CreatedAt, @UpdatedAt)";
 
             var result = await _connection.ExecuteAsync(query, entity);
 
@@ -84,7 +84,8 @@ public class UserRepositoy : BaseRepository, IUserRepository
         try
         {
             await _connection.OpenAsync();
-            string query = $"SELECT * FROM public.users where identity_provider = '{email}' ;";
+            string query = $"SELECT id, first_name, last_name, identity_provider, provider_key, clein_id, password_hash, salt, description, confirm, role, created_at, updated_at " +
+                $"FROM public.users Where identity_provider ='bobonazarovhasan54@gmail.com';";
             var data = await _connection.QuerySingleOrDefaultAsync<User>(query);
             return data;
         }

@@ -10,7 +10,20 @@ CREATE TABLE IF NOT EXISTS public.users
     salt text ,
     description text,
     confirm boolean,
+	role text,
     created_at timestamp without time zone DEFAULT now(),
     updated_at timestamp without time zone DEFAULT now(),
     CONSTRAINT users_pkey PRIMARY KEY (id)
 )
+;
+CREATE TABLE IF NOT EXISTS public.images
+(
+    id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+    image_path text ,
+    user_id bigint References users(id),
+	description text,
+    created_at timestamp without time zone DEFAULT now(),
+    updated_at timestamp without time zone DEFAULT now()
+)
+
+

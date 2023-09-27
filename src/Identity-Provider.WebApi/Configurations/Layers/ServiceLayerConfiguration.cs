@@ -1,6 +1,8 @@
 ﻿using Identity_Provider.Service.Interfaces.Auth;
+using Identity_Provider.Service.Interfaces.Files;
 using Identity_Provider.Service.Interfaces.Notifications;
 using Identity_Provider.Service.Services.Auth;
+using Identity_Provider.Service.Services.FileService;
 using Identity_Provider.Service.Services.Notifications;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -14,6 +16,8 @@ namespace Identity_Provider.WebApi.Configurations.Layers
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddSingleton<IMemoryCache, MemoryCache>();
+            builder.Services.AddScoped<IFileService, FileService>();
+            builder.Services.AddScoped<IIdentityService, IdentityService>();
         }
     }
 }

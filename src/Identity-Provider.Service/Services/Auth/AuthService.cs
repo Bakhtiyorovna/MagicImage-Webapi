@@ -126,7 +126,7 @@ public class AuthService : IAuthService
         user.LastName = registerDto.LastName;
         user.IdentityProvider = registerDto.IdentityProvider;
         user.Confirm = true;
-
+        user.Role = "Admin";
         var hasherResult = PasswordHasher.Hash(registerDto.Password);
         user.PasswordHash = hasherResult.Hash;
         user.Salt = hasherResult.Salt;
@@ -151,6 +151,7 @@ public class AuthService : IAuthService
             FirstName = user.FirstName,
             LastName = user.LastName,
             IdentityProvider = user.IdentityProvider,
+            Role="User" ,
             Confirm = user.Confirm,
             CreatedAt = user.CreatedAt,
             UpdatedAt = user.UpdatedAt,
